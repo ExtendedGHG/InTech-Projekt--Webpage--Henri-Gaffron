@@ -2,10 +2,24 @@
 
 html {
     background-color: red;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 .nav {
-    /* border: 1px solid black; */
+     border: 1px solid black; /* Um die Border der Div sehen zu können */
+     position:fixed;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    max-height: 120px;
+    z-index: 1; /* Immer im Vordergrund */
+
    
 }
 
@@ -14,20 +28,35 @@ html {
     width: 100%;
     height: auto;
     float: left;
+    padding: 10px;
 
-    
 }
 
 .nav a {
     text-decoration: none;
-    margin-left: 3%;
-    font-size: 150%;
+    margin-left: 6%;
+    font-size: 200%;
     font-family: 'Lato', sans-serif;
-    
+
 }
 
-.nav-ul {
+.nav a:hover {
+    animation-name: nav-as;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes nav-as {
+    0% {font-size: 200%;}
+    20%{font-size: 195%;}
+    100% {font-size: 240%;}
+}
+
+.nav ul {
     list-style: none;
+    justify-content: right;
+    list-style: none;
+    margin-right: 15%;
 }
 
 .nav-ul li {
