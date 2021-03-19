@@ -3,6 +3,7 @@
 html {
     background-color: red;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 body {
@@ -19,8 +20,6 @@ body {
     width: 100%;
     max-height: 120px;
     z-index: 1; /* Immer im Vordergrund */
-
-   
 }
 
 #logo {
@@ -44,6 +43,7 @@ body {
     animation-name: nav-as;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+
 }
 
 @keyframes nav-as {
@@ -64,3 +64,25 @@ body {
     
 }
 
+.videosec {
+    height: 100vh;
+}
+
+.videosec video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.videosec h1 {
+    font-family: Lato;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+section {
+    height: 100vh;
+}
