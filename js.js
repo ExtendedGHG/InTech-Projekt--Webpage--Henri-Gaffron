@@ -2,14 +2,14 @@
 
 const videosec = document.querySelector(".videosec");
 const video = videosec.querySelector("video");
-const video = videosec.querySelector("h1");
+const text = videosec.querySelector("h1");
 
 const section = document.querySelector("section");
 const headline = section.querySelector("h1");
 
 const controller = new ScrollMagic.Controller();
 
-const scene = new ScrollMagic.Scene({
+let scene = new ScrollMagic.Scene({
     duration: 2000,
     triggerElemnt: videosec,
     triggerHook: 0
@@ -19,15 +19,27 @@ const scene = new ScrollMagic.Scene({
 .setPin(videosec)
 .addTo(controller);
 
+const textAnim = TweenMax.fromTo(text, 3, { opacity: 0 }, { opacity: 1 });
+
+let scene2 = new ScrollMagic.Scene({
+    duration: 3000,
+    triggerElement: videosec,
+    triggerHook: 0
+  })
+    .setTween(textAnim)
+    .addTo(controller);
+
 let accelamount = 0.1;
 let scrollpos = 0;
 let delay = 0;
 
-scene.on('update', e => )
+scene.on('update', e => {
     scrollpos = e.scrollPos / 1000;
-    console.log(e)
-
+});
 setInterval(() => {
     delay += (scrollpos - delay) * accelamount
     console.log(scrollpos, delay);
-}. 33,3);
+
+    video.currentTime = delay;
+}, 33,3);
+
