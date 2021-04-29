@@ -1,5 +1,3 @@
-/* funktioniert noch nicht for some reason */
-
 const videosec = document.querySelector(".videosec");
 const video = videosec.querySelector("video");
 const text = videosec.querySelector("h1");
@@ -10,7 +8,7 @@ const headline = section.querySelector("h1");
 const controller = new ScrollMagic.Controller();
 
 let scene = new ScrollMagic.Scene({
-    duration: 2000,
+    duration: 9000,
     triggerElemnt: videosec,
     triggerHook: 0
 })
@@ -29,6 +27,7 @@ let scene2 = new ScrollMagic.Scene({
     .setTween(textAnim)
     .addTo(controller);
 
+    
 let accelamount = 0.1;
 let scrollpos = 0;
 let delay = 0;
@@ -36,10 +35,11 @@ let delay = 0;
 scene.on('update', e => {
     scrollpos = e.scrollPos / 1000;
 });
+
+
 setInterval(() => {
     delay += (scrollpos - delay) * accelamount
     console.log(scrollpos, delay);
 
     video.currentTime = delay;
 }, 33,3);
-
